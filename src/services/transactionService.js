@@ -1,4 +1,4 @@
-import { transactions } from "../data/transactions";
+import { transactions } from "../data";
 import logger from "../utils/logger";
 
 export const fetchTransactions = async () => {

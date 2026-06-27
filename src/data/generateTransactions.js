@@ -1,27 +1,15 @@
 import { faker } from "@faker-js/faker";
 import { nanoid as uniqId } from "nanoid";
-import { customers } from "./customers";
+import { generateCustomers } from "./generateCustomers";
+import { MONTHS, PRODUCTS } from "../constants";
 
 faker.seed(123);
-
-const products = [
-	"Laptop",
-	"Mobile",
-	"Keyboard",
-	"Mouse",
-	"Monitor",
-	"Headphones",
-	"Tablet",
-	"Printer",
-];
-
-const months = ["2023-12", "2024-01", "2024-02"];
-
 export const generateTransactions = () => {
-	return months.flatMap((month) =>
+	const customers = generateCustomers();
+	return MONTHS.flatMap((month) =>
 		customers.flatMap((customer) =>
 			// faker.number.int({ min: 3, max: 6 }
-			Array.from({ length: faker.number.int({ max: 1 }) }, () => {
+			Array.from({ length: faker.number.int({ min: 3, max: 5 }) }, () => {
 				const day = faker.number.int({ min: 1, max: 28 });
 
 				return {
@@ -29,7 +17,7 @@ export const generateTransactions = () => {
 					customerId: customer.id,
 					customerName: customer.name,
 					purchaseDate: `${month}-${String(day).padStart(2, "0")}`,
-					product: faker.helpers.arrayElement(products),
+					product: faker.helpers.arrayElement(PRODUCTS),
 					amount: Number(
 						faker.commerce.price({
 							min: 20,
