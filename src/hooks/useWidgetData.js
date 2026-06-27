@@ -1,13 +1,8 @@
 import { useMemo } from "react";
 import { nanoid as uniqId } from "nanoid";
-import rewardAggregator from "../utils/rewardAggregator";
 import { WIDGETS_TITLES } from "../constants";
 
-const useWidgetData = (transactions) => {
-	const { stats } = useMemo(
-		() => rewardAggregator(transactions),
-		[transactions],
-	);
+const useWidgetData = (stats) => {
 	return useMemo(() => {
 		return [
 			{

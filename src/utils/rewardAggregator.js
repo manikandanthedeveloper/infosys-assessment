@@ -1,3 +1,4 @@
+import { nanoid as uniqId } from "nanoid";
 import rewardCalculator from "./rewardCalculator";
 import dateFormatter from "./dateFormatter";
 
@@ -20,6 +21,7 @@ function rewardAggregator(transactions) {
 			const monthlyKey = `${transaction.customerId}-${MmYyyy}`;
 			if (!acc.monthlyRewards[monthlyKey]) {
 				acc.monthlyRewards[monthlyKey] = {
+					id: uniqId(),
 					customerId: transaction.customerId,
 					customerName: transaction.customerName,
 					month: month.name,
