@@ -1,3 +1,4 @@
+import NoDataFound from "../components/common/NoDataFound";
 import WidgetsSkeleton from "../components/common/WidgetsSkeleton";
 import Error from "../components/Error";
 import Header from "../components/Header";
@@ -15,17 +16,19 @@ function Dashboard() {
 	return (
 		<div className="max-w-7xl mx-auto p-8">
 			<Header />
-			<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-				{loading ? (
-					<WidgetsSkeleton />
-				) : (
+			{loading ? (
+				<WidgetsSkeleton />
+			) : widgetData.length > 0 ? (
+				<>
 					<Widgets widgetData={widgetData} />
-				)}
-			</div>
-			<Error />
+				</>
+			) : (
+				<NoDataFound description="There is no widget data available to display." />
+			)}
 			<MonthlyRewardTable />
 			<TotalRewardTable />
 			<TransactionTable />
+			<Error />
 		</div>
 	);
 }
