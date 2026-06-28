@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Widget from "../widgets/Widget";
+import { widgetPropType } from "./WidgetPropTypes";
 
 function Widgets({ widgetData }) {
 	return (
@@ -15,14 +16,7 @@ function Widgets({ widgetData }) {
 }
 
 Widgets.propTypes = {
-	widgetData: PropTypes.arrayOf(
-		PropTypes.exact({
-			id: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-			data: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-				.isRequired,
-		}),
-	).isRequired,
+	widgetData: PropTypes.arrayOf(widgetPropType).isRequired,
 };
 
 export default Widgets;
