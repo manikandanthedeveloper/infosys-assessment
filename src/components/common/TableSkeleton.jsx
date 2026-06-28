@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import TableRowSkeleton from "./TableRowSkeleton";
+import { tablePlaceholderPropTypes } from "./commonPropTypes";
 
 function TableSkeleton({ rows = 5 }) {
 	return (
@@ -23,8 +23,6 @@ function TableSkeleton({ rows = 5 }) {
 	);
 }
 
-TableSkeleton.propTypes = {
-	rows: PropTypes.number,
-};
+TableSkeleton.propTypes = tablePlaceholderPropTypes;
 
 export default TableSkeleton;

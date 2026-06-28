@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import { noDataFoundPropTypes } from "./commonPropTypes";
 
 function NoDataFound({
 	title = "No Data Found",
@@ -15,9 +15,6 @@ function NoDataFound({
 	);
 }
 
-NoDataFound.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
-};
+NoDataFound.propTypes = noDataFoundPropTypes;
 
 export default NoDataFound;

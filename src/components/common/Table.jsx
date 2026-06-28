@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import { tablePropTypes } from "./commonPropTypes";
 
 function Table({ title, children }) {
 	return (
@@ -12,9 +12,6 @@ function Table({ title, children }) {
 	);
 }
 
-Table.propTypes = {
-	title: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired,
-};
+Table.propTypes = tablePropTypes;
 
 export default Table;

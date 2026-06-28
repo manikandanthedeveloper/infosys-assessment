@@ -7,7 +7,7 @@ import useSort from "../../hooks/useSort";
 import SortIcon from "../common/SortIcon";
 
 function MonthlyRewardTable({ monthlyReward }) {
-	const { sortedData, handleSort, sortConfig } = useSort(monthlyReward);
+	const { sortedData, handleSort, sortConfig } = useSort(monthlyReward, "");
 
 	return (
 		<Table title="Monthly Rewards">
@@ -21,23 +21,21 @@ function MonthlyRewardTable({ monthlyReward }) {
 							className="px-6 py-3 text-left cursor-pointer"
 							onClick={() => handleSort("customerName")}
 						>
-							<div className="flex flex-row items-center justify-items-start gap-4">
-								<span>Customer Name</span>
-								<SortIcon
-									sortConfig={sortConfig}
-									field="customerName"
-								/>
-							</div>
+							<SortIcon
+								sortConfig={sortConfig}
+								orderBy="customerName"
+								fieldName="Customer Name"
+							/>
 						</th>
 						<th
 							className="px-6 py-3 text-left cursor-pointer"
 							onClick={() => handleSort("monthNumber")}
 						>
 							<div className="flex flex-row items-center justify-items-start gap-4">
-								<span>Month</span>
 								<SortIcon
 									sortConfig={sortConfig}
-									field="monthNumber"
+									orderBy="monthNumber"
+									fieldName="Month"
 								/>
 							</div>
 						</th>
@@ -46,10 +44,10 @@ function MonthlyRewardTable({ monthlyReward }) {
 							onClick={() => handleSort("year")}
 						>
 							<div className="flex flex-row items-center justify-items-start gap-4">
-								<span>Year</span>
 								<SortIcon
 									sortConfig={sortConfig}
-									field="year"
+									orderBy="year"
+									fieldName="Year"
 								/>
 							</div>
 						</th>
