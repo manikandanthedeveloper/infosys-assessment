@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import TableSkeleton from "../components/common/TableSkeleton";
 import WidgetsSkeleton from "../components/widgets/WidgetsSkeleton";
 import Error from "../components/common/Error";
-import Header from "../components/Header";
+import Header from "../components/common/Header";
 import MonthlyRewardTable from "../components/monthlyReward/MonthlyRewardTable";
 import TotalRewardTable from "../components/totalRewards/TotalRewardTable";
 import TransactionTable from "../components/transactions/TransactionTable";
