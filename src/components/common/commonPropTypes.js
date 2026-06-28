@@ -26,3 +26,9 @@ export const tablePlaceholderRowPropTypes = {
 export const tablePlaceholderPropTypes = {
 	rows: PropTypes.number,
 };
+
+export const errorPropTypes = {
+	title: PropTypes.string,
+	description: PropTypes.string,
+	onRetry: PropTypes.func,
+};
