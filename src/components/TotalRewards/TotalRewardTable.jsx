@@ -1,4 +1,7 @@
-function TotalRewardTable() {
+import { totalRewardTablePropType } from "./totalRewardPropTypes";
+import TotalRewardRow from "./TotalRewardRow";
+
+function TotalRewardTable({ totalRewards }) {
 	return (
 		<div className="bg-white rounded-none border border-gray-200 mb-8">
 			<div className="border-b border-b-gray-200 p-5">
@@ -12,34 +15,22 @@ function TotalRewardTable() {
 							<th className="px-6 py-3 text-left">
 								Customer Name
 							</th>
-
 							<th className="px-6 py-3 text-right">
 								Reward Points
 							</th>
 						</tr>
 					</thead>
-
 					<tbody>
-						<tr className="border-b border-b-gray-200">
-							<td className="px-6 py-4">John Smith</td>
-
-							<td className="px-6 py-4 text-right font-bold text-green-600">
-								610
-							</td>
-						</tr>
-
-						<tr>
-							<td className="px-6 py-4">Mary Johnson</td>
-
-							<td className="px-6 py-4 text-right font-bold text-green-600">
-								480
-							</td>
-						</tr>
+						{totalRewards.map((item) => (
+							<TotalRewardRow item={item} key={item.customerId} />
+						))}
 					</tbody>
 				</table>
 			</div>
 		</div>
 	);
 }
+
+TotalRewardTable.propTypes = totalRewardTablePropType;
 
 export default TotalRewardTable;

@@ -59,7 +59,7 @@ function rewardAggregator(transactions) {
 	);
 
 	return {
-		transactions: sortByDate(result.transactions, "purchaseDate"),
+		rewardTransactions: sortByDate(result.transactions, "purchaseDate"),
 		monthlyRewards: sortByMonthYear(Object.values(result.monthlyRewards)),
 		totalRewards: sortByName(
 			Object.values(result.totalRewards),

@@ -5,7 +5,7 @@ import WidgetsSkeleton from "../components/widgets/WidgetsSkeleton";
 import Error from "../components/Error";
 import Header from "../components/Header";
 import MonthlyRewardTable from "../components/MonthlyReward/MonthlyRewardTable";
-import TotalRewardTable from "../components/TotalRewardTable";
+import TotalRewardTable from "../components/TotalRewards/TotalRewardTable";
 import TransactionTable from "../components/TransactionTable";
 import Widgets from "../components/widgets/Widgets";
 import { useTransactions } from "../hooks/useTransactions";
@@ -14,7 +14,7 @@ import rewardAggregator from "../utils/rewardAggregator";
 
 function Dashboard() {
 	const { transactions, loading } = useTransactions();
-	const { stats, monthlyRewards } = useMemo(
+	const { stats, monthlyRewards, totalRewards, rewardTransactions } = useMemo(
 		() => rewardAggregator(transactions),
 		[transactions],
 	);
@@ -35,7 +35,12 @@ function Dashboard() {
 			) : (
 				<MonthlyRewardTable monthlyReward={monthlyRewards} />
 			)}
-			<TotalRewardTable />
+			{loading ? (
+				<TableSkeleton />
+			) : (
+				<TotalRewardTable totalRewards={totalRewards} />
+			)}
+
 			<TransactionTable />
 			<Error />
 		</div>
