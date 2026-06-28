@@ -1,7 +1,6 @@
-import PropTypes from "prop-types";
 import MonthlyRewardRow from "./MonthlyRewardRow";
 import Table from "../common/Table";
-import { monthlyRewardRowPropType } from "./rewardPropTypes";
+import { monthlyRewardTablePropType } from "./rewardPropTypes";
 
 import useSort from "../../hooks/useSort";
 import SortIcon from "../common/SortIcon";
@@ -65,8 +64,6 @@ function MonthlyRewardTable({ monthlyReward }) {
 	);
 }
 
-MonthlyRewardTable.propTypes = {
-	monthlyReward: PropTypes.arrayOf(monthlyRewardRowPropType).isRequired,
-};
+MonthlyRewardTable.propTypes = monthlyRewardTablePropType;
 
 export default MonthlyRewardTable;

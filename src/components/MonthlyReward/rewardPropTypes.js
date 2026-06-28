@@ -8,4 +8,8 @@ export const monthlyRewardRowPropType = PropTypes.exact({
 	monthNumber: PropTypes.number,
 	year: PropTypes.number.isRequired,
 	rewardPoints: PropTypes.number.isRequired,
-});
+}).isRequired;
+
+export const monthlyRewardTablePropType = {
+	monthlyReward: PropTypes.arrayOf(monthlyRewardRowPropType).isRequired,
+};

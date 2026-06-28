@@ -14,8 +14,6 @@ function MonthlyRewardRow({ item }) {
 	);
 }
 
-MonthlyRewardRow.propTypes = {
-	item: monthlyRewardRowPropType.isRequired,
-};
+MonthlyRewardRow.propTypes = monthlyRewardRowPropType;
 
 export default MonthlyRewardRow;
