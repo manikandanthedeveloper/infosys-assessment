@@ -47,18 +47,38 @@ function Dashboard() {
 			{loading ? (
 				<TableSkeleton />
 			) : (
-				<MonthlyRewardTable monthlyReward={monthlyRewards} />
+				<>
+					{monthlyRewards.length > 0 ? (
+						<MonthlyRewardTable monthlyReward={monthlyRewards} />
+					) : (
+						<NoDataFound description="There is no Monthly Rewards data available to display." />
+					)}
+				</>
 			)}
 			{loading ? (
 				<TableSkeleton />
 			) : (
-				<TotalRewardTable totalRewards={totalRewards} />
+				<>
+					{monthlyRewards.length > 0 ? (
+						<TotalRewardTable totalRewards={totalRewards} />
+					) : (
+						<NoDataFound description="There is no Total Rewards data available to display." />
+					)}
+				</>
 			)}
 
 			{loading ? (
 				<TableSkeleton />
 			) : (
-				<TransactionTable rewardTransactions={rewardTransactions} />
+				<>
+					{rewardTransactions.length > 0 ? (
+						<TransactionTable
+							rewardTransactions={rewardTransactions}
+						/>
+					) : (
+						<NoDataFound description="There is no Transactions data available to display." />
+					)}
+				</>
 			)}
 		</div>
 	);
