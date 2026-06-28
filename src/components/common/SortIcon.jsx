@@ -3,10 +3,10 @@ import iconSortUp from "../../assets/icon-sort-up.svg";
 import iconSortDown from "../../assets/icon-sort-down.svg";
 import { sortIconPropTypes } from "./commonPropTypes";
 
-function SortIcon({ sortConfig, orderBy }) {
+function SortIcon({ sortConfig, orderBy, fieldName }) {
 	return (
 		<div className="flex flex-row items-center justify-items-start gap-4">
-			<span>Customer Name</span>
+			<span>{fieldName}</span>
 			<img
 				src={
 					sortConfig.key !== orderBy

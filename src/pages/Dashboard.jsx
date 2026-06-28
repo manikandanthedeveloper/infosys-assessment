@@ -20,7 +20,6 @@ function Dashboard() {
 	);
 	const widgetData = useWidgetData(stats);
 
-	console.log(transactions, "transactions!!!");
 	return (
 		<div className="max-w-7xl mx-auto p-8">
 			<Header />
