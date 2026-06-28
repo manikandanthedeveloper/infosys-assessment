@@ -32,3 +32,11 @@ export const errorPropTypes = {
 	description: PropTypes.string,
 	onRetry: PropTypes.func,
 };
+
+export const dataSectionPropTypes = {
+	loading: PropTypes.bool.isRequired,
+	data: PropTypes.array.isRequired,
+	skeleton: PropTypes.node.isRequired,
+	emptyMessage: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
+};
