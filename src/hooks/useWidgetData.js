@@ -1,27 +1,26 @@
 import { useMemo } from "react";
-import { nanoid as uniqId } from "nanoid";
 import { WIDGETS_TITLES } from "../constants";
 
 const useWidgetData = (stats) => {
 	return useMemo(() => {
 		return [
 			{
-				id: uniqId(),
+				id: "WID101",
 				title: WIDGETS_TITLES.customers,
 				data: stats.customers,
 			},
 			{
-				id: uniqId(),
+				id: "WID102",
 				title: WIDGETS_TITLES.transactions,
 				data: stats.transactions,
 			},
 			{
-				id: uniqId(),
+				id: "WID103",
 				title: WIDGETS_TITLES.rewardsAwarded,
 				data: stats.rewardsAwarded,
 			},
 			{
-				id: uniqId(),
+				id: "WID104",
 				title: WIDGETS_TITLES.months,
 				data: stats.months,
 			},

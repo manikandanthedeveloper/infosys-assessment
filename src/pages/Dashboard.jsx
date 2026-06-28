@@ -4,9 +4,9 @@ import TableSkeleton from "../components/common/TableSkeleton";
 import WidgetsSkeleton from "../components/widgets/WidgetsSkeleton";
 import Error from "../components/Error";
 import Header from "../components/Header";
-import MonthlyRewardTable from "../components/MonthlyReward/MonthlyRewardTable";
-import TotalRewardTable from "../components/TotalRewards/TotalRewardTable";
-import TransactionTable from "../components/TransactionTable";
+import MonthlyRewardTable from "../components/monthlyReward/MonthlyRewardTable";
+import TotalRewardTable from "../components/totalRewards/TotalRewardTable";
+import TransactionTable from "../components/transactions/TransactionTable";
 import Widgets from "../components/widgets/Widgets";
 import { useTransactions } from "../hooks/useTransactions";
 import useWidgetData from "../hooks/useWidgetData";
@@ -20,6 +20,7 @@ function Dashboard() {
 	);
 	const widgetData = useWidgetData(stats);
 
+	console.log(transactions, "transactions!!!");
 	return (
 		<div className="max-w-7xl mx-auto p-8">
 			<Header />
@@ -41,7 +42,11 @@ function Dashboard() {
 				<TotalRewardTable totalRewards={totalRewards} />
 			)}
 
-			<TransactionTable />
+			{loading ? (
+				<TableSkeleton />
+			) : (
+				<TransactionTable rewardTransactions={rewardTransactions} />
+			)}
 			<Error />
 		</div>
 	);
