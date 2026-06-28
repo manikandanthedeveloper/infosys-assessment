@@ -9,7 +9,6 @@ import TotalRewardTable from "../components/totalRewards/TotalRewardTable";
 import TransactionTable from "../components/transactions/TransactionTable";
 import Widgets from "../components/widgets/Widgets";
 import { useTransactions } from "../hooks/useTransactions";
-import useWidgetData from "../hooks/useWidgetData";
 import rewardAggregator from "../utils/rewardAggregator";
 
 function Dashboard() {
@@ -18,15 +17,19 @@ function Dashboard() {
 		() => rewardAggregator(transactions),
 		[transactions],
 	);
-	const widgetData = useWidgetData(stats);
 
 	return (
 		<div className="max-w-7xl mx-auto p-8">
 			<Header />
 			{loading ? (
 				<WidgetsSkeleton />
-			) : widgetData.length > 0 ? (
-				<Widgets widgetData={widgetData} />
+			) : stats.transactions > 0 ? (
+				<Widgets
+					customers={stats.customers}
+					transactions={stats.transactions}
+					rewardsAwarded={stats.rewardsAwarded}
+					months={stats.months}
+				/>
 			) : (
 				<NoDataFound description="There is no widget data available to display." />
 			)}

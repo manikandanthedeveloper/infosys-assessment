@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export const noDataFoundPropTypes = {
-	title: PropTypes.string.isRequired,
+	title: PropTypes.string,
 	description: PropTypes.string.isRequired,
 };
 

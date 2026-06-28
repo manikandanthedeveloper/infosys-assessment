@@ -8,8 +8,10 @@ export const generateTransactions = () => {
 	let cusId = 1000;
 	return MONTHS.flatMap((month) =>
 		customers.flatMap((customer) =>
-			Array.from({ length: faker.number.int({ min: 3, max: 5 }) }, () => {
-				const day = faker.number.int({ min: 1, max: 28 });
+			// faker.number.int({ min: 3, max: 5 })
+			Array.from({ length: faker.number.int({ min: 1, max: 1 }) }, () => {
+				// faker.number.int({ min: 1, max: 28 });
+				const day = faker.number.int({ min: 1, max: 1 });
 
 				return {
 					id: `TXN${cusId++}`,
