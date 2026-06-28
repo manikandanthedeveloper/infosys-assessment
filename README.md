@@ -251,31 +251,33 @@ npm run preview
 
 ### Dashboard
 
-_Add screenshot here._
+<img width="1272" height="658" alt="Dashboard" src="https://github.com/user-attachments/assets/84528529-590e-4908-ad84-42ca47b0abed" />
 
 ### Monthly Rewards
 
-_Add screenshot here._
+<img width="1247" height="486" alt="Monthly Reward" src="https://github.com/user-attachments/assets/f6cf35f5-fc03-455c-a671-91bb324cc83e" />
+
 
 ### Total Rewards
 
-_Add screenshot here._
+<img width="1256" height="275" alt="Total Rewards" src="https://github.com/user-attachments/assets/9922599d-4e7d-4123-b6e7-00f1df93c7d3" />
+
 
 ### Transactions
-
-_Add screenshot here._
+<img width="463" height="609" alt="Transactions" src="https://github.com/user-attachments/assets/6f6325bc-ceb9-496d-a8d8-894a1f9f342f" />
 
 ### Loading State
 
-_Add screenshot here._
+<img width="1288" height="675" alt="Loading" src="https://github.com/user-attachments/assets/507f8ce1-1e35-4549-8b1a-e25a94100893" />
+
 
 ### Empty State
 
-_Add screenshot here._
+<img width="1254" height="612" alt="Empty state" src="https://github.com/user-attachments/assets/5880cdd2-2cf9-4e37-a3c8-db5761f1cd37" />
+
 
 ### Error State
-
-_Add screenshot here._
+<img width="1320" height="417" alt="Error" src="https://github.com/user-attachments/assets/a776f948-b0f7-4ea8-8ab8-0a3c6e6013ea" />
 
 ---
 
