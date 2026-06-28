@@ -10,10 +10,9 @@ import TransactionTable from "../components/transactions/TransactionTable";
 import Widgets from "../components/widgets/Widgets";
 import { useTransactions } from "../hooks/useTransactions";
 import rewardAggregator from "../utils/rewardAggregator";
-import { fetchTransactions } from "../services/transactionService";
 
 function Dashboard() {
-	const { transactions, loading, error } = useTransactions();
+	const { transactions, loading, error, refetch } = useTransactions();
 	const { stats, monthlyRewards, totalRewards, rewardTransactions } = useMemo(
 		() => rewardAggregator(transactions),
 		[transactions],
@@ -24,7 +23,7 @@ function Dashboard() {
 			<Error
 				title="Unable to load transactions"
 				description={error.message}
-				onRetry={fetchTransactions}
+				onRetry={refetch}
 			/>
 		);
 	}

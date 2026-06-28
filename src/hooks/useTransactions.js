@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { fetchTransactions } from "../services/transactionService";
 
 export const useTransactions = () => {
@@ -6,35 +6,41 @@ export const useTransactions = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
+	const loadTransactions = useCallback(async () => {
+		try {
+			setLoading(true);
+			setError(null);
+			const data = await fetchTransactions();
+
+			setTransactions(data || []);
+		} catch (err) {
+			setError(
+				err instanceof Error
+					? err
+					: new Error("Failed to load transactions"),
+			);
+		} finally {
+			setLoading(false);
+		}
+	}, []);
+
 	useEffect(() => {
 		let isMounted = true;
 
-		const loadTransactions = async () => {
-			try {
-				setLoading(true);
-				setError(null);
-				const data = await fetchTransactions();
-
-				if (isMounted) {
-					setTransactions(data || []);
-				}
-			} catch (err) {
-				if (isMounted) {
-					setError(err.message || "Failed to load transactions");
-				}
-			} finally {
-				if (isMounted) {
-					setLoading(false);
-				}
-			}
+		const load = async () => {
+			if (!isMounted) return;
+			await loadTransactions();
 		};
-
-		loadTransactions();
-
+		load();
 		return () => {
 			isMounted = false;
 		};
-	}, []);
+	}, [loadTransactions]);
 
-	return { transactions, loading, error };
+	return {
+		transactions,
+		loading,
+		error,
+		refetch: loadTransactions,
+	};
 };
