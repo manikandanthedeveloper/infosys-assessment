@@ -1,6 +1,6 @@
-import { nanoid as uniqId } from "nanoid";
 import rewardCalculator from "./rewardCalculator";
 import dateFormatter from "./dateFormatter";
+import { sortByDate, sortByMonthYear, sortByName } from "./sortData";
 
 function rewardAggregator(transactions) {
 	const result = transactions.reduce(
@@ -21,7 +21,7 @@ function rewardAggregator(transactions) {
 			const monthlyKey = `${transaction.customerId}-${MmYyyy}`;
 			if (!acc.monthlyRewards[monthlyKey]) {
 				acc.monthlyRewards[monthlyKey] = {
-					id: uniqId(),
+					id: monthlyKey,
 					customerId: transaction.customerId,
 					customerName: transaction.customerName,
 					month: month.name,
@@ -59,15 +59,11 @@ function rewardAggregator(transactions) {
 	);
 
 	return {
-		transactions: result.transactions.sort(
-			(a, b) => new Date(a.purchaseDate) - new Date(b.purchaseDate),
-		),
-		monthlyRewards: Object.values(result.monthlyRewards).sort((a, b) => {
-			if (a.year !== b.year) return a.year - b.year;
-			return a.monthNumber - b.monthNumber;
-		}),
-		totalRewards: Object.values(result.totalRewards).sort((a, b) =>
-			a.customerName.localeCompare(b.customerName),
+		transactions: sortByDate(result.transactions, "purchaseDate"),
+		monthlyRewards: sortByMonthYear(Object.values(result.monthlyRewards)),
+		totalRewards: sortByName(
+			Object.values(result.totalRewards),
+			"customerName",
 		),
 		stats: {
 			customers: result.customerIds.size,

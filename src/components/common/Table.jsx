@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Table({ title, children }) {
 	return (
 		<div className="bg-white rounded-none border border-gray-200 mb-8">
@@ -9,5 +11,10 @@ function Table({ title, children }) {
 		</div>
 	);
 }
+
+Table.propTypes = {
+	title: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
+};
 
 export default Table;

@@ -1,4 +1,4 @@
-const MONTHS = ["2026-06", "2026-06", "2026-07", "2026-08"];
+const MONTHS = ["2025-06", "2026-06", "2026-07", "2026-08"];
 const PRODUCTS = [
 	"Laptop",
 	"Mobile",
